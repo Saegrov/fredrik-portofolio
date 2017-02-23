@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  padding: 0 39px;
+  width: 100vw;
+}
+
+.top {
+  display: flex;
+  height: 10vh;
+  justify-content: space-between;
+  padding-top: 29px;
+  z-index: 2;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  margin-top: calc(179px - 10vh);
+  width: 295px;
+}
+
+.contact {
+  align-self: flex-end;
+  margin-bottom: 67px;
+  margin-right: 150px;
+}

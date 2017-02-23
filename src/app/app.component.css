@@ -1,8 +1,31 @@
-html, body{
+html, body {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: franklin-gothic-urw, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #333E48;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  color: currentColor;
 }
 
 a.active {
   background-color: gray;
+}
+
+.title-wrapper p:first-of-type {
+  margin-top: 40px;
+  margin-bottom: 13px
+}
+
+hr {
+  display: none;
+}
+
+p {
+  margin: 0 0 18px;
 }

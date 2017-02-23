@@ -1,0 +1,29 @@
+<div class="top">
+  <div #enseBox>
+    <p [routerLink]="['/']"><b>Ense</b></p>
+    <p>{{currentEnseWord}}</p>
+  </div>
+  <div><a [routerLink]="['/om']">Om</a></div>
+</div>
+<div class="middle">
+
+  <div class="image-wrapper">
+    <div (click)="testClick($event, x)" class="image"
+         [ngStyle]="{'background-image': 'url(' + currentImage.url + ')'}">
+    </div>
+  </div>
+</div>
+<div class="bottom">
+  <div class="title-wrapper" [innerHtml]="currentImage.caption">
+  </div>
+</div>
+
+
+<!--<div class="back">-->
+
+<!--</div>-->
+
+
+<div style="display: none">
+  <img *ngFor="let image of images" [src]="image.url">
+</div>
