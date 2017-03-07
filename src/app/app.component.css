@@ -13,9 +13,6 @@ html, body {
   color: currentColor;
 }
 
-a.active {
-  background-color: gray;
-}
 
 .title-wrapper p:first-of-type {
   margin-top: 40px;

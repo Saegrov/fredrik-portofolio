@@ -1,8 +1,4 @@
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/timer';
-import 'rxjs/add/operator/takeUntil';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StateService } from '../state.service';
 
 @Component({
@@ -10,75 +6,12 @@ import { StateService } from '../state.service';
   styleUrls: ['./click.component.css'],
   templateUrl: './click.component.html'
 })
-export class ClickComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  @ViewChild('enseBox') public enseBoxEl: ElementRef;
-
+export class ClickComponent implements OnInit, OnDestroy {
   public images: any[];
   public currentImage: any = {};
-  public currentEnseWord = 'aftenselskap';
-  private currentImageIndex = 0;
-  private currentEnseIndex = 0;
-  private subscription;
 
-  private enseWords = [
-    'aftenselskap',
-    'begrenset',
-    'utslippsgrensene',
-    'tiltaksgrense',
-    'konsekvensetikk',
-    'brensel',
-    'pologenser',
-    'sammensetninger',
-    'avgrense',
-    'ubegrense',
-    'collegegenser',
-    'bydelsgrenser',
-    'eksponergingsgrensen',
-    'flybrensel',
-    'forfallstendenser',
-    'forurenser',
-    'gjengtendenser',
-    'grenseland',
-    'kjensel',
-    'luftrense',
-    'oljeforurenset',
-    'ordsammensetninger',
-    'pollensesongen',
-    'potenseksponent',
-    'promillegrensen',
-    'pustefrekvensen',
-    'nrk-lisensen',
-    'tepperenseriet',
-    'renselse',
-    'rensende',
-    'skrensespor',
-    'smertegrense',
-    'verdenserkjennelsene',
-    'brukergrensesnittet',
-    'ense',
-    'aldersgrensespørsmål',
-    'sysselsettingskonsekvenser',
-    'impotensen',
-    'jazzensemblet',
-    'morgensexen',
-    'rensekapasitet',
-    'kompenseres',
-    'demensen',
-    'kondenseres',
-    'verdenseliten',
-    'aldersgrense',
-    'konsentrasjonstendensen',
-    'sameksistensen',
-    'renses',
-    'differensen',
-    'oppløsingstendensene',
-    'Tøyensenteret',
-    'hjertefrekvensen',
-    'oppløsningstendenser',
-    'mensen',
-    'fattigdomsgrensen'
-  ];
+  private currentImageIndex = 0;
+  private subscription;
 
   constructor(private stateService: StateService) {
   }
@@ -90,27 +23,6 @@ export class ClickComponent implements OnInit, AfterViewInit, OnDestroy {
         this.currentImage = this.images[this.currentImageIndex];
 
       });
-  }
-
-  public ngAfterViewInit() {
-    let nel: HTMLElement = this.enseBoxEl.nativeElement;
-
-    let mouseOver = Observable.fromEvent(nel, 'mouseenter');
-    let mouseleave = Observable.fromEvent(nel, 'mouseleave');
-
-    mouseOver
-      .switchMap(() => {
-        return Observable.timer(0, 350)
-          .takeUntil(mouseleave);
-      })
-      .subscribe(() => {
-        this.currentEnseIndex += 1;
-        if (this.currentEnseIndex === this.enseWords.length) {
-          this.currentEnseIndex = 0;
-        }
-        this.currentEnseWord = this.enseWords[this.currentEnseIndex];
-      });
-
   }
 
   public ngOnDestroy() {

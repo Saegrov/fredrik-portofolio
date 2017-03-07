@@ -9,10 +9,17 @@
 .top {
   display: flex;
   height: 10vh;
+  min-height: 100px;
   justify-content: space-between;
   padding-top: 29px;
   z-index: 2;
 }
+
+.top a {
+  text-decoration: none;
+}
+
+
 
 .middle {
   height: 69vh;
@@ -41,7 +48,7 @@
 
 .title-wrapper {
   height: 21vh;
-  flex: 0 1 50%;
+  flex: 0 1 40%;
   text-align: right;
 }
 
@@ -54,12 +61,11 @@ p {
 }
 
 .image {
-  position: absolute;
-  overflow: hidden;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;
   height: 69vh;
+  max-width: 800px;
   width: 80vw;
 }

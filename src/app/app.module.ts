@@ -16,6 +16,7 @@ import { ClickComponent } from './click/click.component';
 import { ENV_PROVIDERS } from './environment';
 import { NoContentComponent } from './no-content';
 import { StateService } from './state.service';
+import { EnseComponent } from './click/ense.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -29,6 +30,7 @@ const APP_PROVIDERS = [
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    EnseComponent,
     AboutComponent,
     ClickComponent,
     NoContentComponent

@@ -27,7 +27,8 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Ense',
+  description: 'Streber etter å tenke utenkte tanker, formgi noe formløst, fortelle viktige historier og skape ikke-skapt innhold, som kan bidra til å løse reelle problemer.',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -179,7 +180,7 @@ module.exports = function (options) {
           exclude: [helpers.root('src/index.html')]
         },
 
-        /* 
+        /*
          * File loader for supporting images, for example, in CSS files.
          */
         {
@@ -189,7 +190,7 @@ module.exports = function (options) {
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
-        { 
+        {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
         }
@@ -281,6 +282,7 @@ module.exports = function (options) {
       new HtmlWebpackPlugin({
         template: 'src/index.html',
         title: METADATA.title,
+        description: METADATA.description,
         chunksSortMode: 'dependency',
         metadata: METADATA,
         inject: 'head'

@@ -14,6 +14,16 @@
   z-index: 2;
 }
 
+a {
+  text-decoration: none;
+}
+
+
+.top .active {
+  text-decoration: underline;
+}
+
+
 .middle {
   display: flex;
   justify-content: center;
