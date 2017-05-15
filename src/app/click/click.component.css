@@ -19,10 +19,14 @@
   text-decoration: none;
 }
 
-
+.top a:hover {
+  text-decoration: underline;
+}
 
 .middle {
   height: 69vh;
+  display: flex;
+  align-items: center;
 }
 
 .bottom {
@@ -46,9 +50,15 @@
   width: 80vw;
 }
 
+svg {
+  fill: #333E48;
+
+}
 .title-wrapper {
-  height: 21vh;
   flex: 0 1 40%;
+  height: 21vh;
+  max-width: 500px;
+  min-width: 360px;
   text-align: right;
 }
 
@@ -68,4 +78,10 @@ p {
   height: 69vh;
   max-width: 800px;
   width: 80vw;
+}
+
+.left-arrow,
+.right-arrow {
+  height: 25px;
+  width: 25px;
 }

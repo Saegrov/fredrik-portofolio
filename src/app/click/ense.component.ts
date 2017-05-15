@@ -1,19 +1,22 @@
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/timer';
+import 'rxjs/add/observable/empty';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/takeUntil';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'ense',
   templateUrl: './ense.component.html',
-  styles: ['a { text-decoration: none}']
+  styles: ['a { text-decoration: none}  .hover a:hover {text-decoration: underline}']
 })
 export class EnseComponent implements AfterViewInit {
   @ViewChild('enseBox') public enseBoxEl: ElementRef;
   public currentEnseWord = 'Ense';
+  public hoverClass = true;
   private currentEnseIndex = 0;
-
   private enseWords = [
     'Ense',
     'aftenselskap',
@@ -74,7 +77,18 @@ export class EnseComponent implements AfterViewInit {
     'fattigdomsgrensen'
   ];
 
-  public ngAfterViewInit() {
+  constructor (private router: Router) {
+
+  }
+
+  public ngAfterViewInit () {
+
+    this.router.events
+      .filter((e: Event) => e instanceof NavigationEnd)
+      .subscribe((value: Event) => {
+        this.hoverClass = value.url === '/om';
+
+      });
     let nel: HTMLElement = this.enseBoxEl.nativeElement;
 
     let mouseOver = Observable.fromEvent(nel, 'mouseenter');
@@ -82,7 +96,11 @@ export class EnseComponent implements AfterViewInit {
 
     mouseOver
       .switchMap(() => {
-        return Observable.timer(0, 500)
+        if (this.router.url === '/om') {
+          return Observable.empty();
+        }
+
+        return Observable.timer(0, 750)
           .takeUntil(mouseleave);
       })
       .subscribe(() => {

@@ -13,10 +13,10 @@ export class ClickComponent implements OnInit, OnDestroy {
   private currentImageIndex = 0;
   private subscription;
 
-  constructor(private stateService: StateService) {
+  constructor (private stateService: StateService) {
   }
 
-  public ngOnInit() {
+  public ngOnInit () {
     this.subscription = this.stateService.getImages$()
       .subscribe((value: any[]) => {
         this.images = value;
@@ -25,11 +25,21 @@ export class ClickComponent implements OnInit, OnDestroy {
       });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy () {
     this.subscription.unsubscribe();
   }
 
-  public testClick() {
+  public goLeft () {
+    this.currentImageIndex -= 1;
+    if (this.currentImageIndex < 0) {
+      this.currentImageIndex = this.images.length - 1;
+    }
+    this.currentImage = this.images[this.currentImageIndex];
+    console.error(this.currentImageIndex);
+    console.error(this.currentImage);
+  }
+
+  public goRight () {
     this.currentImageIndex += 1;
     if (this.currentImageIndex === this.images.length) {
       this.currentImageIndex = 0;
