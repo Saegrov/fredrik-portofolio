@@ -41,6 +41,28 @@
   width: 100%;
 }
 
+.middle {
+  position: relative;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+.left-arrow {
+  left: 0;
+  cursor: url(/assets/left.png), w-resize;
+}
+
+.right-arrow {
+  right: 0;
+  cursor: url(/assets/right.png), e-resize;
+}
+
 .image-wrapper {
   align-items: center;
   display: flex;
@@ -78,10 +100,4 @@ p {
   height: 69vh;
   max-width: 800px;
   width: 80vw;
-}
-
-.left-arrow,
-.right-arrow {
-  height: 25px;
-  width: 25px;
 }
