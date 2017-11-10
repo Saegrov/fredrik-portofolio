@@ -5,31 +5,13 @@
   <div><a [routerLink]="['/om']">Om</a></div>
 </div>
 <div class="middle">
-
-  <div class="left-arrow" (click)="goLeft()">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 302.5 261.1" style="enable-background:new 0 0 302.5 261.1;" xml:space="preserve">
-    <g>
-      <path d="M54.6,145.3l96.5,95.2l-19.7,20.5L0,130.5L131.4,0l19.7,20.5l-96.5,95.2h247.9v29.6H54.6z"></path>
-    </g>
-  </svg>
-  </div>
-
   <div class="image-wrapper">
     <div (click)="goLeft()" class="image"
          [ngStyle]="{'background-image': 'url(' + currentImage.url + ')'}">
     </div>
   </div>
-
-  <div class="right-arrow" (click)="goRight()">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 302.5 261.1" style="enable-background:new 0 0 302.5 261.1;" xml:space="preserve">
-      <g>
-        <path d="M0,145.3l0-29.6h247.9l-96.5-95.2L171.2,0l131.4,130.5L171.2,261.1l-19.7-20.5l96.5-95.2H0z"></path>
-      </g>
-    </svg>
-
-  </div>
+  <div (click)="goLeft()" class="left-arrow"></div>
+  <div (click)="goRight()" class="right-arrow"></div>
 </div>
 <div class="bottom">
   <div class="title-wrapper" [innerHtml]="currentImage.caption">
